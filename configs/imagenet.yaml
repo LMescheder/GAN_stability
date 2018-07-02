@@ -1,0 +1,60 @@
+data:
+  type: image
+  train_dir: data/Imagenet
+  test_dir: data/Imagenet
+  lsun_categories_train: bedroom_train
+  lsun_categories_test: bedroom_test
+  img_size: 128
+  nlabels: 1000
+generator:
+  name: resnet2
+  kwargs:
+    nfilter: 64
+    nfilter_max: 1024
+    embed_size: 256
+discriminator:
+  name: resnet2
+  kwargs:
+    nfilter: 64
+    nfilter_max: 1024
+    embed_size: 256
+z_dist:
+  type: gauss
+  dim: 256
+training:
+  out_dir: output/imagenet
+  gan_type: standard
+  reg_type: real
+  reg_param: 10.
+  batch_size: 128
+  nworkers: 32
+  take_model_average: true
+  model_average_beta: 0.999
+  model_average_reinit: false
+  monitoring: tensorboard
+  sample_every: 1000
+  sample_nlabels: 20
+  inception_every: 10000
+  save_every: 900
+  backup_every: 100000
+  restart_every: -1
+  optimizer: adam
+  lr_g: 0.0001
+  lr_d: 0.0001
+  lr_anneal: 1.
+  lr_anneal_every: 150000
+  d_steps: 1
+  equalize_lr: false
+test:
+  batch_size: 32
+  sample_size: 32
+  sample_nrow: 8
+  use_model_average: false
+  compute_inception: true
+  conditional_samples: true
+interpolations:
+  ys: [15, 157, 307, 321, 442, 483, 484, 525,
+       536, 598, 607, 734, 768, 795, 927, 977,
+       963, 946, 979]
+  nzs: 10
+  nsubsteps: 75
