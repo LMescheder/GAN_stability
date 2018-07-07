@@ -1,5 +1,5 @@
 # GAN stability
-This repository contains the experiments in the supplementary material for the paper [Which Training Methods for GANs do actually Converge?](https://arxiv.org/abs/1801.04406).
+This repository contains the experiments in the supplementary material for the paper [Which Training Methods for GANs do actually Converge?](https://avg.is.tuebingen.mpg.de/publications/meschedericml2018).
 
 To cite this work, please use
 ```
@@ -10,6 +10,7 @@ To cite this work, please use
   year = {2018}
 }
 ```
+You can find further details on [our project page](https://avg.is.tuebingen.mpg.de/research_projects/convergence-and-stability-of-gan-training).
 
 # Usage
 First download your data and put it into the `./data` folder.
