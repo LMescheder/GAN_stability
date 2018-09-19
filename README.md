@@ -36,6 +36,7 @@ python interpolate_class.py PATH_TO_CONFIG
 
 # Notes
 * For the results presented in the paper, we did not use a moving average over the weights. However, using a moving average helps to reduce noise and we therefore recommend its usage. Indeed, we found that using a moving average leads to much better inception scores on Imagenet.
+* Batch normalization is currently *not* supported when using an exponential running average, as the running average is only computed over the parameters of the models and not the other buffers of the model.
 
 # Results
 ## celebA-HQ
