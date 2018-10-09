@@ -50,8 +50,8 @@ test:
   sample_size: 15
   sample_nrow: 5
   use_model_average: true
-  compute_inception: true
-  conditional_samples: true
+  compute_inception: false
+  conditional_samples: false
 interpolations:
   nzs: 10
   nsubsteps: 75

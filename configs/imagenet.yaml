@@ -49,7 +49,7 @@ test:
   batch_size: 32
   sample_size: 32
   sample_nrow: 8
-  use_model_average: false
+  use_model_average: true
   compute_inception: true
   conditional_samples: true
 interpolations:
