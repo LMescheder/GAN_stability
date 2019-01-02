@@ -63,9 +63,8 @@ class Generator(nn.Module):
 
 
 class Discriminator(nn.Module):
-    def __init__(self, z_dim, nlabels, size, embed_size=256, nfilter=64, nfilter_max=1024):
+    def __init__(self, z_dim, nlabels, size, nfilter=64, nfilter_max=1024):
         super().__init__()
-        self.embed_size = embed_size
         s0 = self.s0 = 4
         nf = self.nf = nfilter
         nf_max = self.nf_max = nfilter_max
