@@ -20,8 +20,8 @@ class Trainer(object):
 
     def generator_trainstep(self, y, z):
         assert(y.size(0) == z.size(0))
-        toogle_grad(self.generator, True)
-        toogle_grad(self.discriminator, False)
+        toggle_grad(self.generator, True)
+        toggle_grad(self.discriminator, False)
         self.generator.train()
         self.discriminator.train()
         self.g_optimizer.zero_grad()
@@ -36,8 +36,8 @@ class Trainer(object):
         return gloss.item()
 
     def discriminator_trainstep(self, x_real, y, z):
-        toogle_grad(self.generator, False)
-        toogle_grad(self.discriminator, True)
+        toggle_grad(self.generator, False)
+        toggle_grad(self.discriminator, True)
         self.generator.train()
         self.discriminator.train()
         self.d_optimizer.zero_grad()
@@ -79,7 +79,7 @@ class Trainer(object):
 
         self.d_optimizer.step()
 
-        toogle_grad(self.discriminator, False)
+        toggle_grad(self.discriminator, False)
 
         # Output
         dloss = (dloss_real + dloss_fake)
@@ -115,7 +115,7 @@ class Trainer(object):
 
 
 # Utility functions
-def toogle_grad(model, requires_grad):
+def toggle_grad(model, requires_grad):
     for p in model.parameters():
         p.requires_grad_(requires_grad)
 
@@ -133,8 +133,8 @@ def compute_grad2(d_out, x_in):
 
 
 def update_average(model_tgt, model_src, beta):
-    toogle_grad(model_src, False)
-    toogle_grad(model_tgt, False)
+    toggle_grad(model_src, False)
+    toggle_grad(model_tgt, False)
 
     param_dict_src = dict(model_src.named_parameters())
 
