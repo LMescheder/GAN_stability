@@ -5,7 +5,7 @@ To cite this work, please use
 ```
 @INPROCEEDINGS{Mescheder2018ICML,
   author = {Lars Mescheder and Sebastian Nowozin and Andreas Geiger},
-  title = {Which Training Methods for GANs do actually Converge?,
+  title = {Which Training Methods for GANs do actually Converge?},
   booktitle = {International Conference on Machine Learning (ICML)},
   year = {2018}
 }
