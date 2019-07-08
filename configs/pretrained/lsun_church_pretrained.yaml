@@ -6,25 +6,24 @@ data:
   lsun_categories_test: [church_outdoor_test]
   img_size: 256
 generator:
-  name: resnet
+  name: resnet3
   kwargs:
     nfilter: 64
-    nfilter_max: 1024
     embed_size: 1
 discriminator:
-  name: resnet
+  name: resnet3
   kwargs:
     nfilter: 64
-    nfilter_max: 1024
     embed_size: 1
 z_dist:
   type: gauss
   dim: 256
 training:
-  out_dir: output/lsun_church
+  out_dir: output/pretrained/lsun_church
 test:
+  model_file: https://s3.eu-central-1.amazonaws.com/avg-projects/gan_stability/models/lsun_church-b6f0191b.pt
   batch_size: 32
-  sample_size: 64
+  sample_size: 64 
   sample_nrow: 8
 interpolations:
   nzs: 10

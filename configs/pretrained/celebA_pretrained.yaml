@@ -1,30 +1,27 @@
 data:
-  type: lsun
-  train_dir: data/LSUN
-  test_dir: data/LSUN
-  lsun_categories_train: [bridge_train]
-  lsun_categories_test: [bridge_train]
+  type: image
+  train_dir: data/celebA
+  test_dir: data/celebA
   img_size: 256
 generator:
-  name: resnet
+  name: resnet4
   kwargs:
     nfilter: 64
-    nfilter_max: 1024
     embed_size: 1
 discriminator:
-  name: resnet
+  name: resnet4
   kwargs:
     nfilter: 64
-    nfilter_max: 1024
     embed_size: 1
 z_dist:
   type: gauss
   dim: 256
 training:
-  out_dir: output/lsun_bridge
+  out_dir: output/pretrained/celebA
 test:
+  model_file: https://s3.eu-central-1.amazonaws.com/avg-projects/gan_stability/models/celeba-ab478c9d.pt
   batch_size: 32
-  sample_size: 64
+  sample_size: 64 
   sample_nrow: 8
 interpolations:
   nzs: 10

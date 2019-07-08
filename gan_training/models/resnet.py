@@ -57,7 +57,7 @@ class Generator(nn.Module):
         out = self.resnet(out)
 
         out = self.conv_img(actvn(out))
-        out = F.tanh(out)
+        out = torch.tanh(out)
 
         return out
 

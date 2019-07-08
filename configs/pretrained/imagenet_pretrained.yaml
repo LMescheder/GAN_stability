@@ -20,14 +20,14 @@ z_dist:
   type: gauss
   dim: 256
 training:
-  out_dir: output/imagenet
-  gan_type: standard
+  out_dir: output/pretrained/imagenet
   sample_nlabels: 20
   inception_every: 10000
   batch_size: 128
 test:
-  batch_size: 32
-  sample_size: 64
+  model_file: https://s3.eu-central-1.amazonaws.com/avg-projects/gan_stability/models/imagenet-8c505f47.pt
+  batch_size: 32 
+  sample_size: 64 
   sample_nrow: 8
   compute_inception: true
   conditional_samples: true

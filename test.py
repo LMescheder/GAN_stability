@@ -22,7 +22,7 @@ parser.add_argument('--no-cuda', action='store_true', help='Do not use cuda.')
 
 args = parser.parse_args()
 
-config = load_config(args.config)
+config = load_config(args.config, 'configs/default.yaml')
 is_cuda = (torch.cuda.is_available() and not args.no_cuda)
 
 # Shorthands
@@ -46,6 +46,10 @@ checkpoint_io = CheckpointIO(
     checkpoint_dir=checkpoint_dir
 )
 
+# Get model file
+model_file = config['test']['model_file']
+
+# Models
 device = torch.device("cuda:0" if is_cuda else "cpu")
 
 generator, discriminator = build_models(config)
@@ -83,7 +87,9 @@ evaluator = Evaluator(generator_test, zdist, ydist,
                       batch_size=batch_size, device=device)
 
 # Load checkpoint if existant
-it = checkpoint_io.load('model.pt')
+load_dict = checkpoint_io.load(model_file)
+it = load_dict.get('it', -1)
+epoch_idx = load_dict.get('epoch_idx', -1)
 
 # Inception score
 if config['test']['compute_inception']:

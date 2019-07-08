@@ -19,9 +19,10 @@ z_dist:
   type: gauss
   dim: 256
 training:
-  out_dir: output/celebAHQ
+  out_dir: output/pretrained/celebAHQ
   batch_size: 24
 test:
+  model_file: https://s3.eu-central-1.amazonaws.com/avg-projects/gan_stability/models/celebahq-baab46b2.pt
   batch_size: 4
   sample_size: 6
   sample_nrow: 3
