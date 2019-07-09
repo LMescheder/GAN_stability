@@ -29,7 +29,7 @@ test:
   batch_size: 32 
   sample_size: 64 
   sample_nrow: 8
-  compute_inception: true
+  compute_inception: false
   conditional_samples: true
 interpolations:
   ys: [15, 157, 307, 321, 442, 483, 484, 525,
