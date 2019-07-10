@@ -2,7 +2,7 @@ import yaml
 from torch import optim
 from os import path
 from gan_training.models import generator_dict, discriminator_dict
-from gan_training.train import toogle_grad
+from gan_training.train import toggle_grad
 
 
 # General config
